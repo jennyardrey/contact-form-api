@@ -1,7 +1,48 @@
-const app = require('./src/app');
+const express = require('express');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const cors = require('cors');
 
+const app = express();
 const APP_PORT = 3000;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 app.listen(APP_PORT, () => {
   console.log(`Now serving your Express app at http://localhost:${APP_PORT}`); // eslint-disable-line
+});
+
+app.get('/', (req, res) => {
+  res.send('Welcome to contact-form-api!');
+});
+
+app.post('/api/v1', (req, res) => {
+  const { data } = req;
+
+  const smptTransport = nodemailer.createTransport({
+    service: 'Gmail',
+    port: 465,
+    auth: {
+      username: 'USERNAME',
+      password: 'PASSWORD',
+    },
+  });
+  const mailOptions = {
+    from: data.email,
+    to: 'octavesapart@SpeechGrammarList.com',
+    subject: 'Contact form submission',
+    html: `<p>${data.name}</p>
+          <p>${data.email}</p>
+          <p>${data.message}</p>`,
+  };
+  smptTransport.sendMail(mailOptions, (error, response) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send('Success');
+    }
+    smptTransport.close();
+  });
 });
