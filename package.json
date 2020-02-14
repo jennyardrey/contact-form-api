@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.2"
   },
   "scripts": {
     "start": "nodemon index.js",
@@ -27,5 +30,17 @@
     "nodemon": "^1.18.7",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2"
-  }
+  },
+  "description": "This project is a boilerplate for Node.js/Express applications. It also comes included with Jest, and Supertest for end-to-end testing.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennyardrey/contact-form-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jennyardrey/contact-form-api/issues"
+  },
+  "homepage": "https://github.com/jennyardrey/contact-form-api#readme"
 }
