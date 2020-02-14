@@ -9,7 +9,8 @@
   ],
   "build": {
     "env": {
-      "VARIABLE_NAME": "@secret-name"
+      "username": "@username",
+      "password": "@password"
     }
   },
   "routes": [
