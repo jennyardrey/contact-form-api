@@ -25,8 +25,8 @@ app.post('/api/v1', (req, res) => {
     service: 'Gmail',
     port: 465,
     auth: {
-      username: 'USERNAME',
-      password: 'PASSWORD',
+      username: process.env.username,
+      password: process.env.username,
     },
   });
   const mailOptions = {
