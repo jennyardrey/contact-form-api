@@ -7,17 +7,15 @@
       "use": "@now/node-server"
     }
   ],
+  "build": {
+    "env": {
+      "VARIABLE_NAME": "@secret-name"
+    }
+  },
   "routes": [
     {
       "src": "/(.*)",
       "dest": "app.js"
     }
   ]
-}
-{
-  "build": {
-    "env": {
-      "VARIABLE_NAME": "@secret-name"
-    }
-  }
 }
