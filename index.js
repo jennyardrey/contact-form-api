@@ -1,14 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const cors = require('cors');
+// const cors = require('cors');
 
 const app = express();
 const APP_PORT = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+// app.use(cors({ credentials: true, origin: true }));
+// app.options('*', cors());
 
 app.listen(APP_PORT, () => {
   console.log(`Now serving your Express app at http://localhost:${APP_PORT}`); // eslint-disable-line
@@ -26,12 +27,12 @@ app.post('/api/v1', (req, res) => {
     port: 465,
     auth: {
       username: process.env.username,
-      password: process.env.username,
+      password: process.env.password,
     },
   });
   const mailOptions = {
     from: data.email,
-    to: 'octavesapart@SpeechGrammarList.com',
+    to: 'octavesapart@gmail.com',
     subject: 'Contact form submission',
     html: `<p>${data.name}</p>
           <p>${data.email}</p>
