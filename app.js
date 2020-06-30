@@ -54,6 +54,26 @@ app.post('/send', (req, res, next) => {
         msg: 'success',
       });
     }
+    transporter.sendMail(
+      {
+        from: 'octavesapart@gmail.com',
+        to: email,
+        subject: 'Submission was successful',
+        text: `Thank you for contacting us!\n\nForm details\nName: ${name}\n Email: ${email}\n Message: ${message}`,
+        attachments: [
+          {
+            path: './JennyArdrey copy.JPG',
+          },
+        ],
+      },
+      function(error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(`Message sent: ${info.response}`);
+        }
+      },
+    );
   });
 });
 
