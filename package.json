@@ -11,7 +11,8 @@
     "nodemailer": "^6.4.2"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node index.js",
+    "start:dev": "nodemon app.js",
     "test": "jest --runInBand"
   },
   "devDependencies": {
