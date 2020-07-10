@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const creds = require('./config.js');
+// const creds = require('./config.js');
 
 const app = express();
 app.use(cors());
@@ -16,8 +16,8 @@ app.get('/', (req, res) => res.send('ready to gooo'));
 const transport = {
   host: 'smtp.gmail.com',
   auth: {
-    user: creds.user,
-    pass: creds.pass,
+    user: process.env.USER,
+    pass: process.env.PASS,
   },
 };
 
