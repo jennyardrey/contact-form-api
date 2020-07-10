@@ -59,10 +59,10 @@ app.post('/send', (req, res, next) => {
         from: 'octavesapart@gmail.com',
         to: email,
         subject: 'Submission was successful',
-        text: `Thank you for contacting us!\n\nForm details\nName: ${name}\n Email: ${email}\n Message: ${message}`,
+        text: `Thank you for contacting us ${name}!\n\nHere's your enquiry:\nName: ${name}\n Email: ${email}\n Message: ${message}`,
         attachments: [
           {
-            path: './JennyArdrey copy.JPG',
+            path: './broche.pdf',
           },
         ],
       },
