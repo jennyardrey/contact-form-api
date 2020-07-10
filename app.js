@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const creds = require('./config');
+const creds = require('./config.js');
 
 const app = express();
 app.use(cors());
