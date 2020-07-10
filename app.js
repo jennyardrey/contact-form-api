@@ -77,6 +77,6 @@ app.post('/send', (req, res, next) => {
   });
 });
 
-app.listen(3333, () => console.log('this is listening on port 3000'));
+app.listen(process.env.PORT, () => console.log('this is listening on port 3000'));
 
 module.exports = app;
