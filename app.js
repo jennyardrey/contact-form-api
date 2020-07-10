@@ -16,8 +16,8 @@ app.get('/', (req, res) => res.send('ready to gooo'));
 const transport = {
   host: 'smtp.gmail.com',
   auth: {
-    user: creds.user,
-    pass: creds.pass,
+    user: process.env.USER,
+    pass: process.env.PASS,
   },
 };
 
@@ -77,6 +77,6 @@ app.post('/send', (req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT, () => console.log('this is listening on port 3000'));
+app.listen(process.env.PORT, () => console.log(`this is listening on port ${process.env.PORT}`));
 
 module.exports = app;
