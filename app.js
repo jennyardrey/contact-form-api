@@ -6,7 +6,7 @@ const creds = require('./config');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.get('/', (req, res) => res.send('hello'));
+app.get('/', (req, res) => res.send('ready to gooo'));
 /* app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
