@@ -1,5 +1,5 @@
 {
-  "name": "express-bootstrap",
+  "name": "contact-form-api",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -35,6 +35,9 @@
     "morgan": "^1.9.1",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": "v12.11.1"
   },
   "description": "This project is a boilerplate for Node.js/Express applications. It also comes included with Jest, and Supertest for end-to-end testing.",
   "main": "index.js",
