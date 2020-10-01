@@ -39,7 +39,7 @@ app.post('/send', (req, res, next) => {
 
   const mail = {
     from: name,
-    to: 'octavesapart@gmail.com', // Change to email address that you want to receive messages on
+    to: 'jenny@ardrey.co.uk', // Change to email address that you want to receive messages on
     subject: 'New Message from Contact Form',
     text: content,
   };
