@@ -56,7 +56,7 @@ app.post('/send', (req, res, next) => {
     }
     transporter.sendMail(
       {
-        from: 'octavesapart@gmail.com',
+        from: 'Ginkgo Pyschotherapy',
         to: email,
         subject: 'Submission was successful',
         text: `Thank you for contacting us ${name}!\n\nHere's your enquiry:\nName: ${name}\n Email: ${email}\n Message: ${message}`,
