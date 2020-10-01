@@ -14,10 +14,10 @@ app.get('/', (req, res) => res.send('ready to gooo'));
 }); */
 
 const transport = {
-  host: 'smtp.gmail.com',
+  service: 'gmail',
   auth: {
-    user: process.env.USER,
-    pass: process.env.PASS,
+    user: 'octavesapart@gmail.com',
+    pass: 'lvaplpzrywibtvkj',
   },
 };
 
@@ -60,11 +60,6 @@ app.post('/send', (req, res, next) => {
         to: email,
         subject: 'Submission was successful',
         text: `Thank you for contacting us ${name}!\n\nHere's your enquiry:\nName: ${name}\n Email: ${email}\n Message: ${message}`,
-        attachments: [
-          {
-            path: './broche.pdf',
-          },
-        ],
       },
       function(error, info) {
         if (error) {
