@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const creds = require('./config');
+// const creds = require('./config.js');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.get('/', (req, res) => res.send('hello'));
+app.get('/', (req, res) => res.send('ready to gooo'));
 /* app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -16,8 +16,8 @@ app.get('/', (req, res) => res.send('hello'));
 const transport = {
   host: 'smtp.gmail.com',
   auth: {
-    user: creds.user,
-    pass: creds.pass,
+    user: process.env.USER,
+    pass: process.env.PASS,
   },
 };
 
@@ -54,9 +54,29 @@ app.post('/send', (req, res, next) => {
         msg: 'success',
       });
     }
+    transporter.sendMail(
+      {
+        from: 'octavesapart@gmail.com',
+        to: email,
+        subject: 'Submission was successful',
+        text: `Thank you for contacting us ${name}!\n\nHere's your enquiry:\nName: ${name}\n Email: ${email}\n Message: ${message}`,
+        attachments: [
+          {
+            path: './broche.pdf',
+          },
+        ],
+      },
+      function(error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(`Message sent: ${info.response}`);
+        }
+      },
+    );
   });
 });
 
-app.listen(3333, () => console.log('this is listening on port 3000'));
+app.listen(process.env.PORT, () => console.log(`this is listening on port ${process.env.PORT}`));
 
 module.exports = app;
