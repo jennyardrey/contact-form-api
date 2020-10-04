@@ -16,8 +16,8 @@ app.get('/', (req, res) => res.send('ready to gooo'));
 const transport = {
   service: 'gmail',
   auth: {
-    user: 'octavesapart@gmail.com',
-    pass: 'lvaplpzrywibtvkj',
+    user: process.env.USER,
+    pass: process.env.PASS,
   },
 };
 
